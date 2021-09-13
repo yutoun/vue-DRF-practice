@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-r*3*x10d&1u-2nb3@qxh1s6yj3vdy#x(a@%ki@s94g98hoa(t9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_ALL_ORIGINS = True # CORSを全開にする
+
 ALLOWED_HOSTS = []
 
 # Limits the number of the data you can get, which makes you get only 2 lists at once.
@@ -48,9 +50,11 @@ INSTALLED_APPS = [
     'blog',
     'rest_framework',
     'django_filters',
+    'corsheaders',  # Django CORS Headers
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Django CORS Headers
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
