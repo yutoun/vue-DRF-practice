@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: blog
+  version: 1.0.0
+  description: ブログ記事操作API
+paths:
+  /entries/:
+    post:
+      operationId: article_create
+      description: 記事を投稿するAPI
+      summary: ブログ記事投稿API
+      # parameters:
+      # - in: query
+      #   name: card_number
+      #   schema:
+      #     type: string
+      # - in: query
+      #   name: pin_number
+      #   schema:
+      #     type: string
+      tags:
+      - ブログ全体関連
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: '成功'
+        '400':
+          description: "存在しないユーザーID/status"
+    get:
+      operationId: articles_get
+      description: 全てのブログ記事を取得する
+      summary: 全てのブログ記事取得API
+      # parameters:
+      # - in: query
+      #   name: article_id
+      #   schema:
+      #     type: integer
+      tags:
+      - ブログ全体関連
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: '成功'
+        '400':
+          description: '存在しない記事を選択している'
+    delete:
+      operationId: all_article_delete
+      description: ブログ記事を削除する
+      summary: ブログ記事削除API
+      parameters:
+      - in: query
+        name: article_id
+        schema:
+          type: integer
+      tags:
+      - ブログ全体関連
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: 成功
+        '400':
+          description: "存在しない記事を選択している"
+  /entires/{article_id}/:
+    get:
+      operationId: article_get
+      description: ブログ記事を取得する
+      summary: ブログ記事取得API
+      parameters:
+      - in: query
+        name: article_id
+        schema:
+          type: integer
+      tags:
+      - 各記事関連
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: '成功'
+        '400':
+          description: '存在しない記事を選択している'
+    delete:
+        operationId: article_delete
+        description: ブログ記事を削除する
+        summary: ブログ記事削除API
+        parameters:
+        - in: query
+          name: article_id
+          schema:
+            type: integer
+        tags:
+        - 各記事関連
+        security:
+        - cookieAuth: []
+        - basicAuth: []
+        - {}
+        responses:
+          '200':
+            description: 成功
+          '400':
+            description: "存在しない記事を選択している"
+servers:
+- url: http://127.0.0.1:8000/v1/api/
+  description: Local

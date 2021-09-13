@@ -14,6 +14,7 @@ class Entry(models.Model):
         (STATUS_DRAFT, "下書き"),
         (STATUS_PUBLIC, "公開中"),
     )
+    article_id=models.IntegerField(unique=True, null=True)
     title = models.CharField(max_length=128)
     body = models.TextField()# テキストになっているかチェック
     created_at = models.DateTimeField(auto_now_add=True) # dateになっているかチェック
