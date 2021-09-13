@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 
 # Limits the number of the data you can get, which makes you get only 2 lists at once.
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 2,
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'], #addition for the filter
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 2,
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'], #addition for the filter
 }
 # offset(開始位置)とlimit(一度の取得上限数、default=PAGE_SIZE)
 
